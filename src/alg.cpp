@@ -3,12 +3,10 @@
 #include "tstack.h"
 
 std::string infx2pstfx(std::string inf) {
-  
- std::string out;
- char* act = new char[inf.length()];
- bool  hight_pr = false;
- int j = 0;
-  
+std::string out;
+char* act = new char[inf.length()];
+bool  hight_pr = false;
+int j = 0;
   for (int i = 0; i < inf.length(); i++) {
     if (inf[i] == '+' || inf[i] == '-' || inf[i] == '*' || inf[i] == '/') {
       j++, act[j] = inf[i];
