@@ -2,7 +2,9 @@
 #include <string>
 #include "tstack.h"
 
-std::string infx2pstfx(std::string inf) {
+using namespace std;
+
+string infx2pstfx(string inf) {
   
  char* act = new char[inf.length()];
  bool  hight_pr = false;
@@ -45,7 +47,7 @@ std::string infx2pstfx(std::string inf) {
   return out;
 }
 
-int eval(std::string pst) {
+int eval(string pst) {
  int* act = new int[pst.length()];
  int j = -1;
   for (int i = 0; i < pst.length(); i++) {
