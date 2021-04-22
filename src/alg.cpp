@@ -5,7 +5,7 @@
 std::string infx2pstfx(std::string inf) {
 char* act = new char[inf.length()];
 bool  hight_pr = false;
-string out;
+std::string out;
 int j = 0;
   for (int i = 0; i < inf.length(); i++) {
     if (inf[i] == '+' || inf[i] == '-' || inf[i] == '*' || inf[i] == '/') {
