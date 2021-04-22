@@ -2,24 +2,20 @@
 #include <string>
 #include "tstack.h"
 
-using namespace std;
-
-string infx2pstfx(string inf) {
-  
- char* act = new char[inf.length()];
- bool  hight_pr = false;
- string out;
- int j = 0;
-  
+std::string infx2pstfx(std::string inf) {
+char* act = new char[inf.length()];
+bool  hight_pr = false;
+std::string out;
+int j = 0;
   for (int i = 0; i < inf.length(); i++) {
     if (inf[i] == '+' || inf[i] == '-' || inf[i] == '*' || inf[i] == '/') {
       j++, act[j] = inf[i];
     } else if(inf[i] == '(') {
       if (act[j] == '+' || act[j] == '-') hight_pr = true;
       j++, act[j] = inf[i];
-    } else if(inf[i] == ')') {
+    } else if (inf[i] == ')') {
       while (act[j] != '(') {
-        out += act[j], out+=' ';
+        out += act[j], out += ' ';
         j--;
       }
       j--;
@@ -47,19 +43,19 @@ string infx2pstfx(string inf) {
   return out;
 }
 
-int eval(string pst) {
+int eval(std::string pst) {
  int* act = new int[pst.length()];
  int j = -1;
-  for (int i = 0; i < pst.length(); i++) {
-    if(isdigit(pst[i])){
-      j++, act[j] = pst[i] - '0';
-    } else if(pst[i] == '+') {
-      act[j - 1] = (act[j] + act[j - 1]);
-      j--;
-    } else if(pst[i] == '-') {
+ for (int i = 0; i < pst.length(); i++) {
+   if (isdigit(pst[i])) {
+     j++, act[j] = pst[i] - '0';
+   } else if (pst[i] == '+') {
+     act[j - 1] = (act[j] + act[j - 1]);
+     j--;
+    } else if (pst[i] == '-') {
       act[j - 1] = (act[j - 1] - act[j]);
       j--;
-    } else if(pst[i] == '*') {
+    } else if (pst[i] == '*') {
       if ( i + 1 < pst.length() && pst[i + 1] == '-' ) {
         int result = (act[j] * act[j - 1]);
         act[j - 1] = (act[j - 1] - result);
@@ -72,7 +68,7 @@ int eval(string pst) {
         act[j - 1] = (act[j] * act[j - 1]);
         j--;
       }
-    } else if(pst[i] == '/') {
+    } else if (pst[i] == '/') {
       if (i + 1 < pst.length() && pst[i + 1] == '-') {
         int result = (act[j - 1] / act[j]);
         act[j - 1] = (act[j - 1] - result);
