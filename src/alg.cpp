@@ -1,11 +1,10 @@
 // Copyright 2021 NNTU-CS
 #include <string>
 #include "tstack.h"
-
+std::string out;
 std::string infx2pstfx(std::string inf) {
 char* act = new char[inf.length()];
 bool  hight_pr = false;
-std::string out;
 int j = 0;
   for (int i = 0; i < inf.length(); i++) {
     if (inf[i] == '+' || inf[i] == '-' || inf[i] == '*' || inf[i] == '/') {
