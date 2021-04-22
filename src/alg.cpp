@@ -5,12 +5,12 @@
 std::string infx2pstfx(std::string inf) {
 char* act = new char[inf.length()];
 bool  hight_pr = false;
-std::string out;
+string out;
 int j = 0;
   for (int i = 0; i < inf.length(); i++) {
     if (inf[i] == '+' || inf[i] == '-' || inf[i] == '*' || inf[i] == '/') {
       j++, act[j] = inf[i];
-    } else if(inf[i] == '(') {
+    } else if (inf[i] == '(') {
       if (act[j] == '+' || act[j] == '-') hight_pr = true;
       j++, act[j] = inf[i];
     } else if (inf[i] == ')') {
@@ -44,12 +44,12 @@ int j = 0;
 }
 
 int eval(std::string pst) {
- int* act = new int[pst.length()];
- int j = -1;
- for (int i = 0; i < pst.length(); i++) {
-   if (isdigit(pst[i])) {
+int* act = new int[pst.length()];
+int j = -1;
+for (int i = 0; i < pst.length(); i++) {
+if (isdigit(pst[i])) {
      j++, act[j] = pst[i] - '0';
-   } else if (pst[i] == '+') {
+  } else if (pst[i] == '+') {
      act[j - 1] = (act[j] + act[j - 1]);
      j--;
     } else if (pst[i] == '-') {
